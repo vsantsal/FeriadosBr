@@ -249,3 +249,19 @@ def test_datas_planilha_anbima_sao_feriados(base_case_feriados: FeriadosBr,
                 assert 1 == 1
             else:
                 assert not base_case_feriados.eh_dia_util(data)
+
+
+def test_todos_feriados_classe_estao_na_planilha_anbima(base_case_feriados: FeriadosBr,
+                                                        nome_arquivo_feriados_anbima: str):
+    feriados_anbima = set()
+    with open(nome_arquivo_feriados_anbima, 'r') as f:
+        for line in f:
+            try:
+                data = datetime.strptime(line.strip('\n'), '%d/%m/%Y').date()
+            except ValueError:
+                print('{} not date!'.format(line))
+            else:
+                feriados_anbima.add(data)
+
+    for feriado in base_case_feriados.feriados:
+        assert feriado in feriados_anbima
