@@ -1,8 +1,8 @@
 from datetime import date
 from datetime import datetime
 from decimal import Decimal
-from src.feriados import FeriadosBr
-from src.feriados import Pascoa
+from src.feriados.feriados import FeriadosBr
+from src.feriados.feriados import Pascoa
 import pytest
 
 

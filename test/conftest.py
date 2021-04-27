@@ -1,4 +1,4 @@
-from src.feriados import FeriadosBr
+from src.feriados.feriados import FeriadosBr
 import pytest
 
 
